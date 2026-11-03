@@ -23,4 +23,22 @@ void draw() {
     stroke(225); line(left, y, right, y);
     fill(0); textAlign(RIGHT); text(str(i), left - 8, y + 4);
   }
-}
+
+  // axes
+  stroke(0);
+  line(left, top, left, bottom);
+  line(left, bottom, right, bottom);
+
+  // bars: count each drink type
+  for (int i = 0; i < types.length; i++) {
+    int count = 0;
+    for (String d : drinks) if (d.equals(types[i])) count++;
+    float h = map(count, 0, 7, 0, bottom - top);
+    float x = left + i * bw + bw * 0.15;
+    fill(70 + i * 30, 120, 200 - i * 25);
+    noStroke();
+    rect(x, bottom - h, bw * 0.7, h);
+    fill(0); textAlign(CENTER);
+    text(str(count), x + bw * 0.35, bottom - h - 6);
+    text(types[i], x + bw * 0.35, bottom + 20);
+  }
