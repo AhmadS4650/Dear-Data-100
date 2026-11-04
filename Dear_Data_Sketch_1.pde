@@ -42,3 +42,12 @@ void draw() {
     text(str(count), x + bw * 0.35, bottom - h - 6);
     text(types[i], x + bw * 0.35, bottom + 20);
   }
+  
+  // axis labels
+  text("Drink", (left + right) / 2, 450);
+  pushMatrix();
+  translate(25, (top + bottom) / 2);
+  rotate(-HALF_PI);
+  text("Number of drinks", 0, 0);
+  popMatrix();
+}
